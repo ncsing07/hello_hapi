@@ -1,25 +1,22 @@
 #!/usr/bin/env groovy
 
 pipeline {
-
-    agent {
-        docker {
-            image 'node'
-            args '-u root'
-        }
-    }
-
+    agent none
     stages {
-        stage('Build') {
+        stage('PHP') {
+            agent {
+                docker { image 'yiisoftware/yii2-php:7.4-fpm' }
+            }
             steps {
-                echo 'Building...'
-                sh 'npm install'
+                sh 'php -v'
             }
         }
-        stage('Test') {
+        stage('Redis') {
+            agent {
+                docker { image 'redis:alpine' }
+            }
             steps {
-                echo 'Testing...'
-                sh 'npm test'
+                sh 'redis-server --version'
             }
         }
     }
