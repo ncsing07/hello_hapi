@@ -1,7 +1,7 @@
 const { spec } = require('pactum');
 
 // const baseUrl = 'https://api-op-stage.thomasmov.xyz';
-const baseUrl = 'http://localhost:8012/';
+const baseUrl = 'http://localhost:8019';
 
 it('should get a response with status code 200', async () => {
   const res1 = await spec()
