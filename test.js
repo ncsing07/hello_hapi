@@ -22,6 +22,6 @@ it('should get a response with status code 200', async () => {
         .get(baseUrl + '/can-shu/operator/list')
         .withHeaders('Authorization', 'Bearer ' + token)
         // .inspect()
-        .expectStatus(203);
+        .expectStatus(200);
 
 });
