@@ -13,7 +13,7 @@ it('should get a response with status code 200', async () => {
             "rememberMe": 1
         }
     })
-    // .inspect()
+    .inspect()
     .expectStatus(200);
 
     const token = res1.json.data.token;
@@ -21,7 +21,7 @@ it('should get a response with status code 200', async () => {
     await spec()
         .get(baseUrl + '/can-shu/operator/list')
         .withHeaders('Authorization', 'Bearer ' + token)
-        // .inspect()
+        .inspect()
         .expectStatus(200);
 
 });
