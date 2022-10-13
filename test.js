@@ -5,14 +5,12 @@ const baseUrl = 'http://localhost:8019';
 
 it('should get a response with status code 200', async () => {
   const res1 = await spec()
-    .get(baseUrl + '/site/index')
-    // .withJson({
-    //     "LoginForm": {
-    //         "username": "keladmin2",
-    //         "password": "keladmin",
-    //         "rememberMe": 1
-    //     }
-    // })
+    .get(baseUrl + '/site/signup')
+    .withJson({
+        "username": "keladmin2",
+        "password": "keladmin",
+        "email": "keladmin@test.com"
+    })
     .inspect()
     .expectStatus(200);
 
