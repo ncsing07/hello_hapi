@@ -1,5 +1,5 @@
 const { spec, request } = require('pactum');
-const { environmentData } = require('./config/env.js');
+const { environmentData } = require('./config/env');
 
 before(() => {
     request.setBaseUrl(environmentData.baseUrl);
@@ -36,6 +36,6 @@ it('should get a response with status code 200', async () => {
 });
 
 
-// require('./posts/default.js')(token);
+// require('./post/default');
 
 
