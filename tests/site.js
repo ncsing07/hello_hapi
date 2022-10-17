@@ -17,6 +17,7 @@ it('should get a response with status code 200', async () => {
             'username': environmentData.admin,
             'password': environmentData.admin,
         })
+        .inspect()
         .expectStatus(200);
 
     token = login.json.data.token;
@@ -28,12 +29,14 @@ it('should get a response with status code 200', async () => {
             'title': random,
             'body': 'Here is ' + random + ' body',
         })
+        .inspect()
         .expectStatus(200);
 
     await spec()
         .get('/site/view-post?id={id}')
         .withHeaders('Authorization', 'Bearer ' + token)
         .withPathParams('id', post.json.data.id)
+        .inspect()
         .expectStatus(200)
         .expectJson({
             'status': 200,
