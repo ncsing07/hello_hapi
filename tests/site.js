@@ -18,7 +18,7 @@ it('should get a response with status code 200', async () => {
             'password': environmentData.admin,
         })
         .inspect()
-        .expectStatus(400);
+        .expectStatus(200);
 
     token = login.json.data.token;
 
